@@ -18,8 +18,6 @@ from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, precision_s
 from sklearn.ensemble import GradientBoostingClassifier
 
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.feature_selection import SelectKBest
-from sklearn.feature_selection import f_classif
 
 st.write("""
 # Fracture Prediction App
@@ -38,6 +36,11 @@ st.sidebar.header('User Input Parameters')
 #CVA
 #Lung_disease
 #Dementia
+dataset_processed = pd.read_csv('dataset/dataset_processed.csv')
+dataset_processed_x = dataset_processed.iloc[:,:-1].values
+
+scaler = MinMaxScaler()
+scaler.fit(dataset_processed_x)
 
 def user_input_features():
     data = {
@@ -247,15 +250,14 @@ st.subheader('Input parameters')
 
 st.write(df)
 
+df = df.values
+
+df = scaler.transform(df)
+#st.write(df)
 
 with open("Models/best_gbc.pickle", 'rb') as model:
     model = pickle.load(model)
 
-
-scaler = MinMaxScaler()
-scaler.fit(df)
-df = scaler.transform(df)
-df = df
 
 prediction = model.predict(df)
 prediction_proba = model.predict_proba(df)
