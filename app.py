@@ -75,9 +75,9 @@ def user_input_features():
         Male = '0'
         Female = '1'
     #BMI = st.sidebar.slider('BMI', 16.00, 23.0, 30.00)
-    BMI = st.sidebar.slider(label='BMI', min_value=16.00, max_value=35.00, key=21.0)
+    BMI = st.sidebar.slider(label='BMI', min_value=16.00, max_value=35.00, value=20.0)
     #CCI = st.sidebar.slider('Charlson Comorbidity Index (CCI)', 0, 0, 40)
-    CCI = st.sidebar.slider(label='Charlson Comorbidity Index (CCI)', min_value=0, max_value=40, key=1)
+    CCI = st.sidebar.slider(label='Charlson Comorbidity Index (CCI)', min_value=0, max_value=40, value=5)
     #CCI = st.sidebar.number_input("Charlson Comorbidity Index (CCI)", min_value=0, max_value=40, value=0)
 
     Preinjury_status = st.sidebar.selectbox('Pre-injury ambulatory status',('Outdoor independent','Outdoor dependent','Indoor independent','Indoor dependent','Bedridden'))
@@ -233,10 +233,10 @@ data = user_input_features()
 df = pd.DataFrame(data, index=[0])
 
                                                         
-st.subheader('Input parameters')
+#st.subheader('Input parameters')
 #st.write(data)
 
-st.write(df)
+#st.write(df)
 
 df = df.values
 
@@ -250,20 +250,24 @@ with open("Models/best_gbc.pickle", 'rb') as model:
 prediction = model.predict(df)
 prediction_proba = model.predict_proba(df)
 
-st.title('Prediction:')       
+#st.title('Prediction:')       
 
 prediction = str(prediction)
 if prediction == '[0]':
     st.subheader('Prediction: Low risk of mortality')
 elif prediction == '[1]':
-    st.subheader('Prediction: Hign risk of mortality')
+    st.subheader('Prediction: High risk of mortality')
 
-st.subheader('Probability of 1-yr mortality is ___%')
-
-st.write(prediction_proba)
-st.write(str(prediction_proba))
-
+text_prob = 'Probability of 1-yr mortality is '+ str(prediction_proba[0,1]*100) + ' %'
+st.write(text_prob) 
+#st.write(prediction_proba[0,1])
 
 
+#st.write(prediction_proba)
+#st.write(str(prediction_proba))
+#st.write(prediction_proba[0,0])
 
+
+st.write('') 
+st.write('') 
 st.write('DISCLAMER: The implementation of this 1-yr hip fracture mortality prediction is NOT intended for use supporting or informing clinical decision-making. It is ONLY to be used for academic research, peer review and validation purposes, and it must NOT be used with data or information relating to any individual.')
