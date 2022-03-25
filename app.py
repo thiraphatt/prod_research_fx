@@ -258,7 +258,11 @@ if prediction == '[0]':
 elif prediction == '[1]':
     st.subheader('Prediction: High risk of mortality')
 
-text_prob = 'Probability of 1-yr mortality is '+ str(prediction_proba[0,1]*100) + ' %'
+text_p = round(float(prediction_proba[0,1]*100), 2)
+if text_p <= 0.5:
+    text_p = ' less than 0.5'
+#st.write(text_p) 
+text_prob = 'Probability of 1-yr mortality is '+ str(text_p)+ ' %'
 st.write(text_prob) 
 #st.write(prediction_proba[0,1])
 
