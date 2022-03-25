@@ -76,6 +76,37 @@ def user_input_features():
         Female = '1'
     #BMI = st.sidebar.slider('BMI', 16.00, 23.0, 30.00)
     BMI = st.sidebar.slider(label='BMI', min_value=16.00, max_value=35.00, value=20.0)
+    
+    
+
+    CKD = st.sidebar.checkbox("CKD")
+    if CKD:
+        CKD = '1'
+    else:
+        CKD = '0'
+
+    Heart_disease = st.sidebar.checkbox("Heart disease")
+    if Heart_disease:
+        Heart_disease = '1'
+    else:
+        Heart_disease = '0'
+    CVA = st.sidebar.checkbox("CVA")
+    if CVA:
+        CVA = '1'
+    else:
+        CVA = '0'
+    Lung_disease = st.sidebar.checkbox("Lung disease")
+    if Lung_disease:
+        Lung_disease = '1'
+    else:
+        Lung_disease = '0'
+    Dementia = st.sidebar.checkbox("Dementia")
+    if Dementia:
+        Dementia = '1'
+    else:
+        Dementia = '0'
+
+    
     #CCI = st.sidebar.slider('Charlson Comorbidity Index (CCI)', 0, 0, 40)
     CCI = st.sidebar.slider(label='Charlson Comorbidity Index (CCI)', min_value=0, max_value=40, value=5)
     #CCI = st.sidebar.number_input("Charlson Comorbidity Index (CCI)", min_value=0, max_value=40, value=0)
@@ -162,34 +193,6 @@ def user_input_features():
         M48hr = '1'
     else:
         M48hr = '0'
-
-
-    CKD = st.sidebar.checkbox("CKD")
-    if CKD:
-        CKD = '1'
-    else:
-        CKD = '0'
-
-    Heart_disease = st.sidebar.checkbox("Heart disease")
-    if Heart_disease:
-        Heart_disease = '1'
-    else:
-        Heart_disease = '0'
-    CVA = st.sidebar.checkbox("CVA")
-    if CVA:
-        CVA = '1'
-    else:
-        CVA = '0'
-    Lung_disease = st.sidebar.checkbox("Lung disease")
-    if Lung_disease:
-        Lung_disease = '1'
-    else:
-        Lung_disease = '0'
-    Dementia = st.sidebar.checkbox("Dementia")
-    if Dementia:
-        Dementia = '1'
-    else:
-        Dementia = '0'
 
     data = {
                 "Age": Age,
