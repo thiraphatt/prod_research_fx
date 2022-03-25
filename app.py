@@ -18,9 +18,9 @@ from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, precision_s
 from sklearn.ensemble import GradientBoostingClassifier
 
 from sklearn.preprocessing import MinMaxScaler
-
+st.set_page_config(page_title='1-yr Mortality Prediction After Hip Fracture')
 st.write("""
-# 1-yr Mortality Prediction
+# 1-yr Mortality Prediction After Hip Fracture
 """)
 
 st.sidebar.header('Input Parameters')
