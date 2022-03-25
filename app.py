@@ -20,7 +20,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.preprocessing import MinMaxScaler
 st.set_page_config(page_title='1-yr Mortality Prediction After Fragility Hip Fracture')
 st.write("""
-# 1-yr Mortality Prediction After Hip Fracture
+# 1-yr Mortality Prediction After Fragility Hip Fracture
 """)
 
 st.sidebar.header('Input Parameters')
