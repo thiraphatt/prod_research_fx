@@ -187,7 +187,10 @@ def user_input_features():
     elif Type_of_operation =='Conservative treatment':
         conservative = '1'
 
-    Time_to_op = st.sidebar.radio("Time to operation", ['<= 48 hr','> 48 hr'], index=1)
+    if conservative != '1':
+        Time_to_op = st.sidebar.radio("Time to operation", ['<= 48 hr','> 48 hr'], index=1)
+    else:
+        Time_to_op = '> 48 hr'
 
     if Time_to_op =='> 48 hr':
         M48hr = '1'
