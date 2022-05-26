@@ -41,7 +41,7 @@ st.write("""
 """)
 
 st.sidebar.header('Input Parameters')
-dataset_processed = pd.read_csv('/Users/thiraphat/Desktop/CMU_Win/prod_research_fx/dataset/dataset_processed.csv')
+dataset_processed = pd.read_csv('dataset/dataset_processed.csv')
 dataset_processed_x = dataset_processed.iloc[:,:-1].values
 
 scaler = MinMaxScaler()
