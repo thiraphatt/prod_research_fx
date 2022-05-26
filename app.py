@@ -18,6 +18,16 @@ from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, precision_s
 from sklearn.ensemble import GradientBoostingClassifier
 
 from sklearn.preprocessing import MinMaxScaler
+st.write(<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PELKBJ6ES5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>, allow_javascript=True, allow_html=True)
+
 st.set_page_config(page_title='1-yr Mortality Prediction After Fragility Hip Fracture')
 st.write("""
 # 1-yr Mortality Prediction After Fragility Hip Fracture
