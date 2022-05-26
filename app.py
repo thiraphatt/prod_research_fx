@@ -18,23 +18,30 @@ from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, precision_s
 from sklearn.ensemble import GradientBoostingClassifier
 
 from sklearn.preprocessing import MinMaxScaler
-st.write(<!-- Global Site Tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PELKBJ6ES5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'GA_MEASUREMENT_ID');
-</script>, allow_javascript=True, allow_html=True)
+import streamlit.components.v1 as component
 
 st.set_page_config(page_title='1-yr Mortality Prediction After Fragility Hip Fracture')
+st.components.v1.html(
+    """
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QP9LNWWSV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-2QP9LNWWSV');
+        </script>
+    """
+    , width=None, height=None, scrolling=False
+    )
+
 st.write("""
 # 1-yr Mortality Prediction After Fragility Hip Fracture
 """)
 
 st.sidebar.header('Input Parameters')
-dataset_processed = pd.read_csv('dataset/dataset_processed.csv')
+dataset_processed = pd.read_csv('/Users/thiraphat/Desktop/CMU_Win/prod_research_fx/dataset/dataset_processed.csv')
 dataset_processed_x = dataset_processed.iloc[:,:-1].values
 
 scaler = MinMaxScaler()
