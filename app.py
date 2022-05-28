@@ -53,10 +53,10 @@ code = """
         </script>
 """
 
-a=os.path.dirname(st.__file__)+'/static/index.html'
+a='/home/ec2-user/prod_research_fx/static/index.html'
 with open(a, 'r') as f:
     data=f.read()
-    if len(re.findall('UA-', data))==0:
+    if len(re.findall('G-', data))==0:
         with open(a, 'w') as ff:
             newdata=re.sub('<head>','<head>'+code,data)
             ff.write(newdata)
