@@ -24,13 +24,13 @@ st.set_page_config(page_title='1-yr Mortality Prediction After Fragility Hip Fra
 st.components.v1.html(
     """
     <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QP9LNWWSV"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PELKBJ6ES5"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-2QP9LNWWSV');
+            gtag('config', 'G-PELKBJ6ES5');
         </script>
     """
     , width=None, height=None, scrolling=False
