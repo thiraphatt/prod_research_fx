@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import os
+import re
 from pandas import ExcelWriter
 from pandas import ExcelFile
 
@@ -36,6 +38,29 @@ st.components.v1.html(
     """
     , width=None, height=None, scrolling=False
     )
+
+
+code = """
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PELKBJ6ES5"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-PELKBJ6ES5');
+        </script>
+"""
+
+a=os.path.dirname(st.__file__)+'/static/index.html'
+with open(a, 'r') as f:
+    data=f.read()
+    if len(re.findall('UA-', data))==0:
+        with open(a, 'w') as ff:
+            newdata=re.sub('<head>','<head>'+code,data)
+            ff.write(newdata)
+
 
 st.write("""
 # 1-yr Mortality Prediction After Fragility Hip Fracture
